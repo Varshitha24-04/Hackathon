@@ -1,0 +1,88 @@
+<html>
+<head>
+    <title>JET Airlines</title>
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>JET Airlines</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="flights.html">Flights</a></li>
+            <li><a href="destinations.html">Destinations</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <main>
+        <h2>Available Flights</h2>
+        <div class="flight-card">
+            <img src="paris.jpg" alt="Flight to Paris" class="flight-image">
+            <div class="flight-details">
+                <h3 class="flight-title">Flight to Paris</h3>
+                <div class="flight-info">
+                    <p>Departure: New York (JFK) at 10:00 AM</p>
+                    <p>Arrival: Paris (CDG) at 11:30 PM</p>
+                    <p>Price: $750</p>
+                </div>
+                <button class="book-button">Book Now</button>
+            </div>
+        </div>
+        <div class="flight-card">
+            <img src="tokyo.jpg" alt="Flight to Tokyo" class="flight-image">
+            <div class="flight-details">
+                <h3 class="flight-title">Flight to Tokyo</h3>
+                <div class="flight-info">
+                    <p>Departure: Los Angeles (LAX) at 1:00 PM</p>
+                    <p>Arrival: Tokyo (HND) at 5:00 PM (next day)</p>
+                    <p>Price: $1200</p>
+                </div>
+                <button class="book-button">Book Now</button>
+            </div>
+        </div>
+        <div id="paymentOverlay" class="payment-overlay">
+            <div class="payment-form">
+                <span class="close-button" onclick="closePayment()">&times;</span>
+                <h2>Payment Details</h2>
+                <form id="paymentForm">
+                    <input type="text" placeholder="Card Number" required>
+                    <input type="text" placeholder="Cardholder Name" required>
+                    <input type="text" placeholder="Expiry Date (MM/YY)" required>
+                    <input type="text" placeholder="CVV" required>
+                    <button type="submit">Pay Now</button>
+                </form>
+            </div>
+        </div>
+    
+        <script>
+            function showPayment() {
+                document.getElementById('paymentOverlay').style.display = 'block';
+            }
+    
+            function closePayment() {
+                document.getElementById('paymentOverlay').style.display = 'none';
+            }
+    
+           
+            document.querySelectorAll('.book-button').forEach(button => {
+                button.addEventListener('click', showPayment);
+            });
+    
+           
+            document.getElementById('paymentForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Payment processed successfully!');
+                closePayment();
+            });
+        </script>
+       
+       
+    </main>
+    <footer>
+        <p>&copy; 2024 JET Airlines. All rights reserved.</p>
+    </footer>
+    
+</body>
+</html>
